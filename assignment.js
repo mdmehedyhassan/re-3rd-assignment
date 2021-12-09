@@ -1,6 +1,6 @@
 // kilometerToMeter
 function kilometerToMeter(kilometer) {
-    if (kilometer > 0) {
+    if (kilometer > 0 && typeof kilometer === 'number') {
         let meter = kilometer * 1000;
         return meter;
     }
@@ -16,29 +16,33 @@ console.log(totalMeter);
 
 // budgetCalculator
 function budgetCalculator(watch, phone, laptop) {
-    if (watch > 0 && phone > 0 && laptop > 0) {
+    if (watch > 0 && typeof watch === 'number' && phone > 0 && typeof phone === 'number' && laptop > 0 && typeof laptop === 'number' ) {
         const watchPrice = watch * 50;
         const phonePrice = phone * 100;
         const laptopPrice = laptop * 500;
         let totalPrice = watchPrice + phonePrice + laptopPrice;
         return totalPrice;
     }
+
     else {
         return `Watch = '${watch}', Phone = '${phone}' & Laptop = '${laptop}' is Not valid. Please give positive number;`;
     }
 }
-const totalPrice = budgetCalculator(20, 5, 6);
+const totalPrice = budgetCalculator(6, 5, 6);
 console.log(totalPrice);
 
 
 
 // hotelCost
 function hotelCost(days) {
-    if (days <= 10 && days > 0) {
+    if(days <= 0 || typeof days != 'number') {
+            return `${days} not valid. please give positive numbers.`;
+    }
+    else if (days <= 10 ) {
         const totalCost = days * 100;
         return totalCost;
     }
-    else if (days <= 20 && days > 0) {
+    else if (days <= 20) {
         const firstTenDays = 10 * 100;
         const remainingDays = days - 10;
         const secondTenDays = remainingDays * 80;
@@ -53,11 +57,8 @@ function hotelCost(days) {
         const totalCost = firstTenDays + secondTenDays + lastDays;
         return totalCost;
     }
-    else {
-        return `${days} not valid. please give positive numbers.`;
-    }
 }
-const totalHotelCost = hotelCost(21);
+const totalHotelCost = hotelCost(31);
 console.log(totalHotelCost);
 
 
