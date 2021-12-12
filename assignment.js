@@ -1,6 +1,6 @@
 // kilometerToMeter
 function kilometerToMeter(kilometer) {
-    if (kilometer > 0 && typeof kilometer === 'number') {
+    if (kilometer > 0 && typeof kilometer === 'number' && kilometer % 1 == 0) {
         let meter = kilometer * 1000;
         return meter;
     }
@@ -16,7 +16,9 @@ console.log(totalMeter);
 
 // budgetCalculator
 function budgetCalculator(watch, phone, laptop) {
-    if (watch > 0 && typeof watch === 'number' && phone > 0 && typeof phone === 'number' && laptop > 0 && typeof laptop === 'number' ) {
+    if (watch > 0 && typeof watch === 'number' && watch % 1 == 0
+    && phone > 0 && typeof phone === 'number' && phone % 1 == 0
+    && laptop > 0 && typeof laptop === 'number' && laptop % 1 == 0) {
         const watchPrice = watch * 50;
         const phonePrice = phone * 100;
         const laptopPrice = laptop * 500;
@@ -35,7 +37,7 @@ console.log(totalPrice);
 
 // hotelCost
 function hotelCost(days) {
-    if(days <= 0 || typeof days != 'number') {
+    if(days <= 0 || typeof days != 'number' || days % 1 != 0) {
             return `${days} not valid. please give positive numbers.`;
     }
     else if (days <= 10 ) {
